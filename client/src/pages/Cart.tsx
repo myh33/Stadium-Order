@@ -197,19 +197,32 @@ export default function Cart() {
             >
               <div>
                 <label className="block text-xs font-bold uppercase text-muted-foreground mb-1">Section</label>
-                <select
-                  {...form.register("sectionId")}
-                  className="w-full bg-card border border-border rounded-lg px-4 py-3 focus:outline-none focus:border-primary appearance-none"
-                >
-                  <option value="">Select Section</option>
-                  {sections?.filter(s => s.isDeliveryAvailable).map(s => (
-                    <option key={s.id} value={s.id}>{s.name}</option>
-                  ))}
-                </select>
+                <div className="relative group">
+                  <select
+                    {...form.register("sectionId")}
+                    className="w-full bg-card border border-border rounded-lg px-4 py-3 focus:outline-none focus:border-primary appearance-none pr-10"
+                  >
+                    <option value="">Select Section</option>
+                    {sections?.filter(s => s.isDeliveryAvailable).map(s => (
+                      <option key={s.id} value={s.id}>{s.name}</option>
+                    ))}
+                  </select>
+                  <div className="absolute right-3 top-1/2 -translate-y-1/2 pointer-events-none text-muted-foreground">
+                    <ArrowRight className="w-4 h-4 rotate-90" />
+                  </div>
+                </div>
                 {form.formState.errors.sectionId && (
                   <p className="text-xs text-destructive mt-1">{form.formState.errors.sectionId.message}</p>
                 )}
               </div>
+              
+              <div className="bg-primary/5 border border-primary/10 rounded-xl p-3 mb-2">
+                <p className="text-[10px] font-bold uppercase text-primary mb-1 tracking-wider">Tip</p>
+                <p className="text-xs text-muted-foreground leading-tight">
+                  Scan je kaartje of typ je zitplaats in voor snelle bezorging.
+                </p>
+              </div>
+
               <div className="flex gap-4">
                 <div className="flex-1">
                   <label className="block text-xs font-bold uppercase text-muted-foreground mb-1">Row</label>

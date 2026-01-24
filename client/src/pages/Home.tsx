@@ -48,6 +48,16 @@ export default function Home() {
         <p className="text-muted-foreground max-w-md">
           Skip the line. Order from your seat. Don't miss a minute of the match.
         </p>
+        
+        <div className="mt-6 p-4 bg-primary/10 border border-primary/20 rounded-2xl">
+          <p className="text-sm font-bold text-primary mb-2 flex items-center gap-2">
+            <span className="flex h-2 w-2 rounded-full bg-primary animate-pulse" />
+            Snel en gemakkelijk bestellen
+          </p>
+          <p className="text-xs text-muted-foreground leading-relaxed">
+            Scan je kaartje of typ je zitplaats in — dan weet het systeem precies waar je zit en kan de bezorger je bestelling direct naar je plek brengen.
+          </p>
+        </div>
       </div>
 
       {/* Sticky Filters */}
