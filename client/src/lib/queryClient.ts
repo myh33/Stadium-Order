@@ -12,8 +12,9 @@ export async function apiRequest(
   url: string,
   data?: unknown | undefined,
 ): Promise<Response> {
-  const res = await fetch("/Stadium-Order" + url, {
-    method,
+  const res = await fetch("api" + url.replace("/api", ""), {}
+                                              
+                                             )
     headers: data ? { "Content-Type": "application/json" } : {},
     body: data ? JSON.stringify(data) : undefined,
     credentials: "include",
@@ -29,7 +30,7 @@ export const getQueryFn: <T>(options: {
 }) => QueryFunction<T> =
   ({ on401: unauthorizedBehavior }) =>
   async ({ queryKey }) => {
-    const res = await fetch("/Stadium-Order/" + queryKey.join("/") as string, {
+    const res = await fetch("api/" + queryKey.join("/"), {
       credentials: "include",
     });
 
